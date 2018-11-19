@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h1>New game</h1>
+  <ul class="list-inline">
+    <% @word_array.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+
+
+  <form action="/score" class="form">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="">What ist the longest word you can find</label>
+    <input type="hidden" name="word_array" value="<%= @word_array.join %>">
+    <input type="text" name="question">
+    <input type="submit" value="Play">
+  </form>
+
+</div>
+
